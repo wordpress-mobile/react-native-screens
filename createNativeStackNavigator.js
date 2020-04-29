@@ -213,6 +213,11 @@ class StackView extends React.Component {
         style={[StyleSheet.absoluteFill, options.cardStyle]}
         stackAnimation={stackAnimation}
         stackPresentation={stackPresentation}
+        replaceAnimation={
+          options.replaceAnimation === undefined
+            ? 'pop'
+            : options.replaceAnimation
+        }
         pointerEvents={
           index === this.props.navigation.state.routes.length - 1
             ? 'auto'

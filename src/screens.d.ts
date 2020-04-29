@@ -22,21 +22,22 @@ declare module 'react-native-screens' {
     | 'fullScreenModal'
     | 'formSheet';
   export type StackAnimationTypes = 'default' | 'fade' | 'flip' | 'none';
+  export type ScreenReplaceTypes = 'push' | 'pop';
 
   export interface ScreenProps extends ViewProps {
     active?: 0 | 1 | Animated.AnimatedInterpolation;
     onComponentRef?: (view: any) => void;
     children?: React.ReactNode;
     /**
-     *@description A callback that gets called when the current screen appears.
+     * @description A callback that gets called when the current screen appears.
      */
     onAppear?: (e: NativeSyntheticEvent<NativeTouchEvent>) => void;
     /**
-     *@description A callback that gets called when the current screen is dismissed by hardware back (on Android) or dismiss gesture (swipe back or down). The callback takes no arguments.
+     * @description A callback that gets called when the current screen is dismissed by hardware back (on Android) or dismiss gesture (swipe back or down). The callback takes no arguments.
      */
     onDismissed?: (e: NativeSyntheticEvent<NativeTouchEvent>) => void;
     /**
-     *@description A callback that gets called when the current screen finishes its transition.
+     * @description A callback that gets called when the current screen finishes its transition.
      */
     onFinishTransitioning?: (e: NativeSyntheticEvent<NativeTouchEvent>) => void;
     /**
@@ -46,13 +47,20 @@ declare module 'react-native-screens' {
      */
     stackPresentation: StackPresentationTypes;
     /**
-     *@description Allows for the customization of how the given screen should appear/dissapear when pushed or popped at the top of the stack. The followin values are currently supported:
+     * @description Allows for the customization of how the given screen should appear/dissapear when pushed or popped at the top of the stack. The following values are currently supported:
      *  @type "default" – uses a platform default animation
      *  @type "fade" – fades screen in or out
      *  @type "flip" – flips the screen, requires stackPresentation: "modal" (iOS only)
      *  @type "none" – the screen appears/dissapears without an animation
      */
     stackAnimation?: StackAnimationTypes;
+    /**
+     * @host (iOS only)
+     * @description Allows for the customization of the type of animation to use when this screen replaces another screen at the top of the stack. The following values are currently supported:
+     *  @type "push" – performs push animation
+     *  @type "pop" – performs pop animation (default)
+     */
+    replaceAnimation?: ScreenReplaceTypes;
     /**
      * @description When set to false the back swipe gesture will be disabled when the parent Screen is on top of the stack. The default value is true.
      */
@@ -68,31 +76,31 @@ declare module 'react-native-screens' {
 
   export interface ScreenStackHeaderConfigProps extends ViewProps {
     /**
-     *@description String that representing screen title that will get rendered in the middle section of the header. On iOS the title is centered on the header while on Android it is aligned to the left and placed next to back button (if one is present).
+     * @description String that representing screen title that will get rendered in the middle section of the header. On iOS the title is centered on the header while on Android it is aligned to the left and placed next to back button (if one is present).
      */
     title?: string;
     /**
-     *@description When set to true the header will be hidden while the parent Screen is on the top of the stack. The default value is false.
+     * @description When set to true the header will be hidden while the parent Screen is on the top of the stack. The default value is false.
      */
     hidden?: boolean;
     /**
-     *@description Controls the color of items rendered on the header. This includes back icon, back text (iOS only) and title text. If you want the title to have different color use titleColor property.
+     * @description Controls the color of items rendered on the header. This includes back icon, back text (iOS only) and title text. If you want the title to have different color use titleColor property.
      */
     color?: string;
     /**
-     *@description Customize font family to be used for the title.
+     * @description Customize font family to be used for the title.
      */
     titleFontFamily?: string;
     /**
-     *@description Customize the size of the font to be used for the title.
+     * @description Customize the size of the font to be used for the title.
      */
     titleFontSize?: number;
     /**
-     *@description Allows for setting text color of the title.
+     * @description Allows for setting text color of the title.
      */
     titleColor?: string;
     /**
-     *@description Controls the color of the navigation header.
+     * @description Controls the color of the navigation header.
      */
     backgroundColor?: string;
     /**

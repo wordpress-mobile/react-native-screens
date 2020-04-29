@@ -210,6 +210,17 @@ export type NativeStackNavigationOptions = {
    */
   gestureEnabled?: boolean;
   /**
+   * How should the screen replacing another screen animate Defaults to `pop`.
+   * The following values are currently supported:
+   * - "push" – the new screen will perform push animation.
+   * - "pop" – the new screen will perform pop animation.
+   *
+   * Only supported on iOS.
+   *
+   * @platform ios
+   */
+  replaceAnimation?: ScreenProps['replaceAnimation'];
+  /**
    * How should the screen be presented.
    * The following values are currently supported:
    * - "push" – the new screen will be pushed onto a stack which on iOS means that the default animation will be slide from the side, the animation on Android may vary depending on the OS version and theme.
