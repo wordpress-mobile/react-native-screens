@@ -49,7 +49,7 @@ repositories {
     jcenter()
     if (project == rootProject) {
         maven {
-            url "https://dl.bintray.com/wordpress-mobile/react-native-mirror/"
+            url "https://a8c-libs.s3.amazonaws.com/android/react-native-mirror"
         }
     } else {
         // When building as a dep, the RN's maven repo is locally in the node_modules folder
