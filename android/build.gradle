@@ -61,7 +61,7 @@ repositories {
 dependencies {
     if (project == rootProject) {
         // If this is the root project (e.g. Jitpack), specify a version
-        implementation 'com.facebook.react:react-native:0.61.5'
+        implementation 'com.facebook.react:react-native:0.64.0'
     } else {
         //noinspection GradleDynamicVersion
         api "com.facebook.react:react-native:+"
